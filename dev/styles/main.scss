@@ -3,8 +3,17 @@
 .container {
 	max-width: 900px;
 	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 10px;
 }
 
-body {
-	background: cornflowerblue;
+.box {
+	width: 75px;
+	height: 75px;
+	border: 2px solid cornflowerblue;
+}
+
+.red {
+	background: red;
 }

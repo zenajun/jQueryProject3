@@ -1,7 +1,9 @@
-const ohHey = "Hello World";
-
-console.log(ohHey);
-
-
-
-console.log(`hello`);
+$(function() {
+    $('.box').on('click', function() {
+        $(this).addClass('red');
+        console.log(this);
+        
+    });
+    
+});
+        
