@@ -131,6 +131,17 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-family: "Crimson Text", serif; }
+
+h1 {
+  color: tomato; }
+
 .container {
   max-width: 900px;
   margin: 0 auto;
@@ -143,5 +154,17 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   height: 75px;
   border: 2px solid cornflowerblue; }
 
+.none {
+  background: white; }
+
 .red {
-  background: red; }
+  background: tomato; }
+
+.blue {
+  background: cornflowerblue; }
+
+.yellow {
+  background: gold; }
+
+.green {
+  background: limegreen; }

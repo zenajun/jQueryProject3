@@ -1,0 +1,14 @@
+$primaryFont: 'Crimson Text', serif;
+$secondaryFont: 'Catamaran', sans-serif;
+
+@mixin fontSize($sizeValue) {
+    font-size: $sizeValue * 1px;
+    font-size: ($sizeValue/10) * 1rem;
+}
+
+@mixin fontStyle($fontFamily, $fontSize, $fontWeight) {
+    font-family: $fontFamily;
+    font-size: $fontSize * 1px;
+    font-size: ($fontSize/10) * 1rem;
+    weight: $fontWeight;
+}

@@ -1,4 +1,19 @@
 @import 'setup';
+@import 'utils';
+@import 'typography';
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	@include fontSize(16);
+	font-family: $primaryFont;
+}
+
+h1 {
+	color: $red;
+}
 
 .container {
 	max-width: 900px;
@@ -13,7 +28,21 @@
 	height: 75px;
 	border: 2px solid cornflowerblue;
 }
-
+.none {
+	background: white;
+}
 .red {
-	background: red;
+	background: $red;
+}
+
+.blue {
+	background: $blue;
+}
+
+.yellow {
+	background: $yellow;
+}
+
+.green {
+	background: $green;
 }

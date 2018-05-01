@@ -1,7 +1,7 @@
 $(function() {
     $('.box').on('click', function() {
-        $(this).addClass('red');
-        console.log(this);
+        $(this).toggleClass('blue red none');
+        // console.log(this);
         
     });
     
