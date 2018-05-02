@@ -18,15 +18,20 @@ h1 {
 	color: $red;
 	margin: 0;
 }
-
-.container {
+.wrapper {
 	max-width: 400px;
 	margin: 0 auto;
+
+}
+.container {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(75px, 1fr));
 	grid-gap: 10px;
 }
 
+.answer {
+	// display: none;
+}
 .box {
 	width: 75px;
 	height: 75px;

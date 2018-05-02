@@ -1,63 +1,75 @@
-$(function() {
-    // function to toggle between colours
-    const colorArray = ['red', 'blue', 'yellow', 'green'];
+const app = {};
 
-    
-    const answerArray = [];
-    const box = `<div class="box"></div>`    
+app.colorArray = ['red', 'blue', 'yellow', 'green'];    
+app.answerArray = [];
 
-    // console.log('ready');
-    
-    const randomIndex = (array) => {
-        return (Math.floor(Math.random() * array.length ));
+// Grab random item from the array
+app.randomIndex = (array) => {
+    return (Math.floor(Math.random() * array.length));
+}
+
+app.selectRandomColor = () => {
+    return app.answerArray.push((app.colorArray[app.randomIndex(app.colorArray)]));
+}
+
+// Create a function that will generate the array more efficiently
+app.makeArray = () => {
+    for (let i = 0; i <= 3; i++) {
+        app.selectRandomColor();            
     }
-    
-    // make answer array:    
-    answerArray.push((colorArray[randomIndex(colorArray)]));
-    answerArray.push((colorArray[randomIndex(colorArray)]));
-    answerArray.push((colorArray[randomIndex(colorArray)]));
-    answerArray.push((colorArray[randomIndex(colorArray)]));
-    console.log(answerArray);    
+    console.log(app.answerArray);
+}
 
-
-     $('div.box').on('click', function() {
+// change box colour on click
+app.changeBoxColor = () => {
+    $('div.box').on('click', function() {
         const dataIndex = parseInt($(this).attr('data-click'));
-        const removeColor = colorArray[dataIndex];
-        const addColor = colorArray[dataIndex + 1];
+        const removeColor = app.colorArray[dataIndex];
+        const addColor = app.colorArray[dataIndex + 1];
         //const test = $(this).data('click');
         console.log(dataIndex);
-        
+
         if (dataIndex === 3) {         
             // $(this).data('click') === 0;    
             $(this).removeClass('green').addClass('red').attr('data-click', 0);
-            // console.log(test);
-            
-            
-            // console.log(typeof );
-            
-
         } else {
             $(this).removeClass(removeColor).addClass(addColor).attr('data-click', dataIndex + 1);
-               
-            // console.log(test);
-                
         }
+    });  
+}   // end of change box colour on click
 
 
-        //  console.log($(this).data('click'));
-         
-        // $(this).toggleClass('red blue yellow green none');
-     });
+
+
+app.init = () => {
+    app.makeArray();
+    app.changeBoxColor();
+}
+
+
+$(function() {
     
+app.init();
+    
+
+    
+    
+    // create boxes with a class from the answerArray
+    // for (let i = 0; i <= 3; i++) {
+    //     const grabColor = answerArray[0]
+    //     const code = `<div class="box ${grabColor}" data-click=""></div>`
+    //     $('div.player').append(code);
+    //     answerArray.shift();
+        // console.log(answerArray);        
+        
+    // }
+    
+    
+
 });
 
 
-// $('.toggle').click(function () {
-//     var classes = ['class1', 'class2', 'class3'];
-//     $('div').each(function () {
-//         this.className = classes[($.inArray(this.className, classes) + 1) % classes.length];
-//     });
-// });
+
 
 /*
  Mastermind game
@@ -67,8 +79,6 @@ $(function() {
 
  The user guesses the array by clicking on the boxes that toggle the colours
         need a toggle function to toggle multiple classes.
-
-
 
 
 */
