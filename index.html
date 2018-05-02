@@ -10,22 +10,40 @@
 </head>
 <body>
 
-	<h1>Hello World!</h1>
-
+	
 	<div class="wrapper">
-		<div class="container">
-			
+		<header>
+			<h1>Hello World!</h1>
+		</header>
+		<div class="container score">
+			<p>Attempt: <span class="score">0</span></p>
 		</div>
+		<div class="container answers">
+			<div class="box"><i class="fas fa-question"></i></div>
+			<div class="box"><i class="fas fa-question"></i></div>
+			<div class="box"><i class="fas fa-question"></i></div>
+			<div class="box"><i class="fas fa-question"></i></div>
+		</div>
+		<div></div>
 		<div class="container player">
 			<div class="box red" data-click="0"></div>
 			<div class="box blue" data-click="1"></div>
 			<div class="box yellow" data-click="2"></div>
 			<div class="box green" data-click="3"></div>
+			<form>
+				<label for="submit" class="visuallyhidden">Submit</label>
+				<input type="submit" name="submit" id="submit">
+
+			</form>
 		</div>
 
 
 		<p>test</p>
 	</div>
+
+	<!---------------- Font awesome script -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+	 crossorigin="anonymous"></script>
 
 	<!----------------- jQuery script -->
 	<script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>

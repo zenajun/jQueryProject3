@@ -8,15 +8,19 @@ html {
 
 body {
 	@include fontSize(16);
-	font-family: $primaryFont;
+	font-family: $secondaryFont;
 	background: linear-gradient( rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../../images/denise-johnson-463885-unsplash.jpg) no-repeat fixed;
 	background-size: cover;
 	height: 100vh;
 }
 
+header {
+	padding: 25px 0;
+}
 h1 {
 	color: $red;
 	margin: 0;
+	font-family: $primaryFont;
 }
 .wrapper {
 	max-width: 400px;
@@ -27,6 +31,7 @@ h1 {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(75px, 1fr));
 	grid-gap: 10px;
+	margin: 20px 0;
 }
 
 .answer {
@@ -35,10 +40,24 @@ h1 {
 .box {
 	width: 75px;
 	height: 75px;
-	border: 2px solid cornflowerblue;
+	border-radius: 50%;
+	border: 2px solid black	;
+	background: white;
+	display: grid;
+	justify-content: center;
+	align-content: center;
 }
 .none {
 	background: white;
+}
+
+input[type="submit"] {
+	font-family: $secondaryFont;
+	color: white;
+	background: black;
+	border: none;
+	border-radius: 30px;
+	padding: 10px 25px;
 }
 .red {
 	background: $red;

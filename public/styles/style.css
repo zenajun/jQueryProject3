@@ -131,21 +131,38 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+.visuallyhidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0);
+  overflow: hidden; }
+
 html {
   font-size: 62.5%; }
 
 body {
   font-size: 16px;
   font-size: 1.6rem;
-  font-family: "Crimson Text", serif;
+  font-family: "Catamaran", sans-serif;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.7))), url(../../images/denise-johnson-463885-unsplash.jpg) no-repeat fixed;
   background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../../images/denise-johnson-463885-unsplash.jpg) no-repeat fixed;
   background-size: cover;
   height: 100vh; }
 
+header {
+  padding: 25px 0; }
+
 h1 {
   color: tomato;
-  margin: 0; }
+  margin: 0;
+  font-family: "Crimson Text", serif; }
 
 .wrapper {
   max-width: 400px;
@@ -154,15 +171,32 @@ h1 {
 .container {
   display: grid;
   grid-template-columns: repeat(4, minmax(75px, 1fr));
-  grid-gap: 10px; }
+  grid-gap: 10px;
+  margin: 20px 0; }
 
 .box {
   width: 75px;
   height: 75px;
-  border: 2px solid cornflowerblue; }
+  border-radius: 50%;
+  border: 2px solid black;
+  background: white;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center; }
 
 .none {
   background: white; }
+
+input[type="submit"] {
+  font-family: "Catamaran", sans-serif;
+  color: white;
+  background: black;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 25px; }
 
 .red {
   background: tomato; }

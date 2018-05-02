@@ -2,6 +2,8 @@ const app = {};
 
 app.colorArray = ['red', 'blue', 'yellow', 'green'];    
 app.answerArray = [];
+app.playersArray = [];
+app.attempt = 0;
 
 // Grab random item from the array
 app.randomIndex = (array) => {
@@ -17,7 +19,7 @@ app.makeArray = () => {
     for (let i = 0; i <= 3; i++) {
         app.selectRandomColor();            
     }
-    console.log(app.answerArray);
+    // console.log(app.answerArray);
 }
 
 // change box colour on click
@@ -27,7 +29,7 @@ app.changeBoxColor = () => {
         const removeColor = app.colorArray[dataIndex];
         const addColor = app.colorArray[dataIndex + 1];
         //const test = $(this).data('click');
-        console.log(dataIndex);
+        // console.log(dataIndex);
 
         if (dataIndex === 3) {         
             // $(this).data('click') === 0;    
@@ -39,30 +41,44 @@ app.changeBoxColor = () => {
 }   // end of change box colour on click
 
 
+// Create function that will grab the data from the users box and make an array.
+app.getUsersSelection = () => {
+    $('form').on('submit', function(e) {
+        e.preventDefault();
+        app.attempt++;
+        $('span.score').text(app.attempt);
+        console.log(app.attempt);
+        
+        $('div.player')
+        
+    });
+}
+
+
+// create boxes with a class from the answerArray  // call this function with answerArray === usersArray
+app.createAnswerBox = () => {
+    for (let i = 0; i < app.answerArray.length; i++ ) {
+        const colorClass = app.answerArray[i];
+        const boxCode = `<div class="box ${colorClass}" data-click=""></div>`;
+        $('div.player').append(boxCode);
+    }
+}
+
 
 
 app.init = () => {
     app.makeArray();
     app.changeBoxColor();
+    app.getUsersSelection();
+
+
 }
-
-
 $(function() {
     
-app.init();
-    
+app.init();  
 
     
     
-    // create boxes with a class from the answerArray
-    // for (let i = 0; i <= 3; i++) {
-    //     const grabColor = answerArray[0]
-    //     const code = `<div class="box ${grabColor}" data-click=""></div>`
-    //     $('div.player').append(code);
-    //     answerArray.shift();
-        // console.log(answerArray);        
-        
-    // }
     
     
 
@@ -79,6 +95,5 @@ app.init();
 
  The user guesses the array by clicking on the boxes that toggle the colours
         need a toggle function to toggle multiple classes.
-
 
 */
