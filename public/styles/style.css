@@ -137,16 +137,21 @@ html {
 body {
   font-size: 16px;
   font-size: 1.6rem;
-  font-family: "Crimson Text", serif; }
+  font-family: "Crimson Text", serif;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.7))), url(../../images/denise-johnson-463885-unsplash.jpg) no-repeat fixed;
+  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../../images/denise-johnson-463885-unsplash.jpg) no-repeat fixed;
+  background-size: cover;
+  height: 100vh; }
 
 h1 {
-  color: tomato; }
+  color: tomato;
+  margin: 0; }
 
 .container {
-  max-width: 900px;
+  max-width: 400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, minmax(75px, 1fr));
   grid-gap: 10px; }
 
 .box {
