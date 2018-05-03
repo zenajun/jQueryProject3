@@ -26,7 +26,7 @@ app.makeArray = function () {
 
 // change box colour on click
 app.changeBoxColor = function () {
-    $('div.box').on('click', function () {
+    $('div.player').on('click', 'div.box', function () {
         var dataIndex = parseInt($(this).attr('data-click'));
         var removeColor = app.colorArray[dataIndex];
         var addColor = app.colorArray[dataIndex + 1];
@@ -42,16 +42,26 @@ app.changeBoxColor = function () {
     });
 }; // end of change box colour on click
 
+app.userScore = function () {
+    app.attempt++;
+    $('span.score').text(app.attempt);
+};
+
+// Create function that will add 4 boxes to the player div
+app.generatePlayArea = function () {
+    var playerBoxes = '<div class="box" data-click="0"></div>';
+    $('div.player').append(playerBoxes);
+    $('div.player').append(playerBoxes);
+    $('div.player').append(playerBoxes);
+    $('div.player').append(playerBoxes);
+};
 
 // Create function that will grab the data from the users box and make an array.
 app.getUsersSelection = function () {
     $('form').on('submit', function (e) {
         e.preventDefault();
-        app.attempt++;
-        $('span.score').text(app.attempt);
-        console.log(app.attempt);
-
-        $('div.player');
+        app.userScore(); // update users score on submit
+        //write function to grab users selection.       
     });
 };
 
@@ -67,6 +77,7 @@ app.createAnswerBox = function () {
 app.init = function () {
     app.makeArray();
     app.changeBoxColor();
+    app.generatePlayArea();
     app.getUsersSelection();
 };
 $(function () {
