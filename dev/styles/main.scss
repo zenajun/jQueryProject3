@@ -34,6 +34,12 @@ h1 {
 	margin: 20px 0;
 }
 
+.result {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+
 .answer {
 	// display: none;
 }

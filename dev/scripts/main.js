@@ -8,8 +8,11 @@ app.answerArray = [];
 //player's choices
 app.playersArray = [];
 
-
+//score & transwer
 app.attempt = 0;
+app.correct = 0;
+
+
 
 // Grab random item from the array
 app.randomIndex = (array) => {
@@ -45,34 +48,39 @@ app.changeBoxColor = () => {
     });  
 }   // end of change box colour on click
 
+app.compare = () => {
+    console.log(app.answerArray);
+    console.log(app.playersArray);
+    
+    for (let i = 0; i < 4; i++) {
+        if (app.answerArray[i] === app.playersArray[i]) {
+            app.correct++;            
+        } 
+    } 
+    $('.correct').text(app.correct);
+}
 // Create function that will grab the data from the users box and make an array.
 app.getUsersSelection = () => {
     $('form').on('submit', function (e) {
         e.preventDefault();
         app.userScore();  // updates users score on submit
 
-        //write function to grab users selection and stick it in an array.     
+        //write function to grab users selection and stick it in an array.  
+        app.playersArray = [];
+        app.correct = 0;
+
         for (let i = 1; i <= 4; i++) {
             app.playersArray.push(app.colorArray[$(`.player .box:nth-child(${i})`).attr('data-click')]);
         }
-        console.log(app.playersArray);
+        app.compare();
+        console.log(`Correct: ${app.correct}`);
+
         
         
-        // .map() to convert app.playersArry into colours
-        // app.playersArray.map((indexTocolor) => {
-        //     // app.playersArray.push(app.colorArray[indexTocolor]);
-            
-
-        //     console.log(app.playersArray);
-        //     // app.playersArray.push(app.colorArray[indexTocolor]);
-        //     // app.playersArray.splice(0, 4);
-        // });
-
-        // const dataIndex = $(this).attr('data-click');
-
     });
 }
 
+// function that will compare the computer's array to the players array
 app.userScore = () => {
     app.attempt++;
     $('span.score').text(app.attempt);
@@ -86,9 +94,7 @@ app.generatePlayArea = () => {
     $('div.player').append(playerBoxes);
     $('div.player').append(playerBoxes);
     $('div.player').append(playerBoxes);
-
 }
-
 
 // create boxes with a class from the answerArray  // call this function with answerArray === usersArray
 app.displayAnswerBox = () => {
@@ -99,28 +105,17 @@ app.displayAnswerBox = () => {
     }
 }
 
-
-
 app.init = () => {
     app.makeArray();
     app.changeBoxColor();
     app.generatePlayArea();
     app.getUsersSelection();
-
-
-
+    app.displayAnswerBox();
 }
 
-
-$(function() {
-    
-app.init();  
-
-    
-    
-    
-    
-
+// Document ready
+$(function() {    
+    app.init();  
 });
 
 
