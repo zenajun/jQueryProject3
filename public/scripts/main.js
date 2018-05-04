@@ -1,5 +1,15 @@
 'use strict';
 
+/*
+ Mastermind game
+
+ Function that will randomly generate 4 colours into an array (order matters)
+    this array will be hidden from the user.
+
+ The user guesses the array by clicking on the boxes that toggle the colours
+    need a toggle function to toggle multiple classes.
+*/
+
 var app = {};
 
 app.colorArray = ['red', 'blue', 'yellow', 'green'];
@@ -10,7 +20,7 @@ app.answerArray = [];
 //player's choices
 app.playersArray = [];
 
-//score & transwer
+//score & attemps
 app.attempt = 0;
 app.correct = 0;
 
@@ -28,7 +38,6 @@ app.makeArray = function () {
     for (var i = 0; i <= 3; i++) {
         app.selectRandomColor();
     }
-    // console.log(app.answerArray);
 };
 
 // change box colour on click
@@ -48,9 +57,6 @@ app.changeBoxColor = function () {
 }; // end of change box colour on click
 
 app.compare = function () {
-    console.log(app.answerArray);
-    console.log(app.playersArray);
-
     for (var i = 0; i < 4; i++) {
         if (app.answerArray[i] === app.playersArray[i]) {
             app.correct++;
@@ -60,23 +66,25 @@ app.compare = function () {
     if (app.correct === 4) {
         console.log('You win!');
         swal({
-
             title: "Good job!",
             icon: "success",
-            text: 'Congratulations!  You\'ve won and it only took you ' + app.attempt + ' attempts!'
-
+            text: 'Congratulations!  And it only took you ' + app.attempt + ' attempts!'
         });
         $('div.answers').html('');
         app.displayAnswerBox();
+        app.resetGame();
+        $('input[type="submit"]').css('display', 'none');
+        $('input[type="reset"]').css('display', 'block');
     }
 };
-// Create function that will grab the data from the users box and make an array.
+
+// Function that will grab the data from the users box and make an array.
 app.getUsersSelection = function () {
     $('form').on('submit', function (e) {
         e.preventDefault();
         app.userScore(); // updates users score on submit
 
-        //write function to grab users selection and stick it in an array.  
+        // Grab users selection and stick it in an array.  
         app.playersArray = [];
         app.correct = 0;
 
@@ -93,14 +101,12 @@ app.userScore = function () {
     $('span.score').text(app.attempt);
 };
 
-// Create function that will add 4 boxes to the player div
+// Function that will add 4 boxes to the player div
 app.generatePlayArea = function () {
     var playerBoxes = '<div class="box" data-click="0"></div>';
-    //make this more efficient...
-    $('div.player').append(playerBoxes);
-    $('div.player').append(playerBoxes);
-    $('div.player').append(playerBoxes);
-    $('div.player').append(playerBoxes);
+    for (var i = 0; i < 4; i++) {
+        $('div.player').append(playerBoxes);
+    }
 };
 
 // create boxes with a class from the answerArray  // call this function with answerArray === usersArray
@@ -108,9 +114,14 @@ app.displayAnswerBox = function () {
     for (var i = 0; i < app.answerArray.length; i++) {
         var colorClass = app.answerArray[i];
         var boxCode = '<div class="box ' + colorClass + '" data-click=""></div>';
-        // $('div.answer').html();
         $('div.answers').append(boxCode);
     }
+};
+
+app.resetGame = function () {
+    $('input[type="reset"]').on('click', function () {
+        location.reload();
+    });
 };
 
 app.init = function () {
@@ -118,21 +129,9 @@ app.init = function () {
     app.changeBoxColor();
     app.generatePlayArea();
     app.getUsersSelection();
-    // app.displayAnswerBox();
 };
 
 // Document ready
 $(function () {
     app.init();
 });
-
-/*
- Mastermind game
-
- Function that will randomly generate 4 colours into an array (order matters)
- this array will be hidden from the user.
-
- The user guesses the array by clicking on the boxes that toggle the colours
-        need a toggle function to toggle multiple classes.
-
-*/

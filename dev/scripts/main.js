@@ -1,3 +1,13 @@
+/*
+ Mastermind game
+
+ Function that will randomly generate 4 colours into an array (order matters)
+    this array will be hidden from the user.
+
+ The user guesses the array by clicking on the boxes that toggle the colours
+    need a toggle function to toggle multiple classes.
+*/
+
 const app = {};
 
 app.colorArray = ['red', 'blue', 'yellow', 'green'];    
@@ -8,17 +18,14 @@ app.answerArray = [];
 //player's choices
 app.playersArray = [];
 
-//score & transwer
+//score & attemps
 app.attempt = 0;
 app.correct = 0;
-
-
 
 // Grab random item from the array
 app.randomIndex = (array) => {
     return (Math.floor(Math.random() * array.length));
 }
-
 
 app.selectRandomColor = () => {
     return app.answerArray.push((app.colorArray[app.randomIndex(app.colorArray)]));
@@ -29,7 +36,6 @@ app.makeArray = () => {
     for (let i = 0; i <= 3; i++) {
         app.selectRandomColor();            
     }
-    // console.log(app.answerArray);
 }
 
 // change box colour on click
@@ -48,10 +54,7 @@ app.changeBoxColor = () => {
     });  
 }   // end of change box colour on click
 
-app.compare = () => {
-    console.log(app.answerArray);
-    console.log(app.playersArray);
-    
+app.compare = () => {    
     for (let i = 0; i < 4; i++) {
         if (app.answerArray[i] === app.playersArray[i]) {
             app.correct++;            
@@ -60,33 +63,33 @@ app.compare = () => {
     $('.correct').text(app.correct);
     if (app.correct === 4) {
         console.log(`You win!`);
-        swal({
-            
+        swal({            
             title: "Good job!",
             icon: "success",
-            text: `Congratulations!  You've won and it only took you ${app.attempt} attempts!`
-
+            text: `Congratulations!  And it only took you ${app.attempt} attempts!`
             });
         $('div.answers').html('');
         app.displayAnswerBox();
-        
+        app.resetGame();
+        $('input[type="submit"]').css('display', 'none');
+        $('input[type="reset"]').css('display', 'block');        
     }
 }
-// Create function that will grab the data from the users box and make an array.
+
+// Function that will grab the data from the users box and make an array.
 app.getUsersSelection = () => {
     $('form').on('submit', function (e) {
         e.preventDefault();
         app.userScore();  // updates users score on submit
 
-        //write function to grab users selection and stick it in an array.  
+        // Grab users selection and stick it in an array.  
         app.playersArray = [];
         app.correct = 0;
 
         for (let i = 1; i <= 4; i++) {
             app.playersArray.push(app.colorArray[$(`.player .box:nth-child(${i})`).attr('data-click')]);
         }
-        app.compare();     
-        
+        app.compare();          
     });
 }
 
@@ -96,14 +99,12 @@ app.userScore = () => {
     $('span.score').text(app.attempt);
 }
 
-// Create function that will add 4 boxes to the player div
+// Function that will add 4 boxes to the player div
 app.generatePlayArea = () => {
     const playerBoxes = `<div class="box" data-click="0"></div>`;
-    //make this more efficient...
-    $('div.player').append(playerBoxes);
-    $('div.player').append(playerBoxes);
-    $('div.player').append(playerBoxes);
-    $('div.player').append(playerBoxes);
+    for (let i = 0; i < 4; i++) {
+        $('div.player').append(playerBoxes);
+    }
 }
 
 // create boxes with a class from the answerArray  // call this function with answerArray === usersArray
@@ -111,9 +112,14 @@ app.displayAnswerBox = () => {
     for (let i = 0; i < app.answerArray.length; i++ ) {
         const colorClass = app.answerArray[i];
         const boxCode = `<div class="box ${colorClass}" data-click=""></div>`;
-        // $('div.answer').html();
         $('div.answers').append(boxCode);
     }
+}
+
+app.resetGame = () => {
+    $('input[type="reset"]').on('click', () => {
+        location.reload();
+    });
 }
 
 app.init = () => {
@@ -121,7 +127,6 @@ app.init = () => {
     app.changeBoxColor();
     app.generatePlayArea();
     app.getUsersSelection();
-    // app.displayAnswerBox();
 }
 
 // Document ready
@@ -132,13 +137,4 @@ $(function() {
 
 
 
-/*
- Mastermind game
 
- Function that will randomly generate 4 colours into an array (order matters)
- this array will be hidden from the user.
-
- The user guesses the array by clicking on the boxes that toggle the colours
-        need a toggle function to toggle multiple classes.
-
-*/

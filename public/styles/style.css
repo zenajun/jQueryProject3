@@ -148,8 +148,8 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-size: 25px;
-  font-size: 2.5rem;
+  font-size: 18px;
+  font-size: 1.8rem;
   font-family: "Catamaran", sans-serif;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.7))), url(../../images/denise-johnson-463885-unsplash.jpg) no-repeat fixed;
   background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../../images/denise-johnson-463885-unsplash.jpg) no-repeat fixed;
@@ -157,14 +157,21 @@ body {
   @media (min-width: 640px) {
     body {
       height: 100vh;
-      font-size: 16px;
-      font-size: 1.6rem; } }
+      font-size: 25px;
+      font-size: 2.5rem; } }
+  @media (min-width: 1040px) {
+    body {
+      font-size: 18px;
+      font-size: 1.8rem; } }
 
 .wrapper {
   max-width: 400px;
   margin: 0 auto;
   display: grid;
-  padding: 5px; }
+  padding: 5px 5px 10px; }
+  @media (min-width: 1040px) {
+    .wrapper {
+      max-width: 600px; } }
 
 header {
   padding: 25px 0; }
@@ -174,7 +181,7 @@ h1 {
   margin: 0;
   font-family: "Crimson Text", serif;
   text-align: center;
-  font-size: 4rem; }
+  font-size: 3rem; }
   @media (min-width: 640px) {
     h1 {
       font-size: 5rem; } }
@@ -185,8 +192,23 @@ div.rules {
   border-radius: 5px;
   margin: 10px; }
 
-span.rule {
+.rules span {
   font-weight: 600; }
+
+.red-rule {
+  color: tomato; }
+
+.blue-rule {
+  color: cornflowerblue; }
+
+.green-rule {
+  color: limegreen; }
+
+.yellow-rule {
+  color: gold; }
+
+.play-area {
+  height: 85vh; }
 
 p {
   font-size: 2rem;
@@ -204,16 +226,19 @@ ul li {
 
 a.play {
   text-decoration: none;
-  display: inline-block;
+  display: none;
   color: white;
   background: black;
-  text-align: center;
+  display: inline-block;
   padding: 10px 50px;
   border-radius: 30px;
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%); }
+  @media (min-width: 1040px) {
+    a.play {
+      display: none; } }
 
 .box {
   width: 75px;
@@ -226,7 +251,12 @@ a.play {
       -ms-flex-pack: center;
           justify-content: center;
   -ms-flex-line-pack: center;
-      align-content: center; }
+      align-content: center;
+  justify-self: center; }
+  @media (min-width: 1040px) {
+    .box {
+      width: 100px;
+      height: 100px; } }
 
 .none {
   background: white; }
@@ -239,13 +269,16 @@ form {
   -ms-flex-line-pack: center;
       align-content: center; }
 
-input[type="submit"] {
+input[type="submit"], input[type="reset"] {
   font-family: "Catamaran", sans-serif;
   color: white;
   background: black;
   border: none;
   border-radius: 30px;
   padding: 10px 50px; }
+
+input[type="reset"] {
+  display: none; }
 
 .red {
   background: tomato; }

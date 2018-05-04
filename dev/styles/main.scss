@@ -7,22 +7,28 @@ html {
 }
 
 body {
-	@include fontSize(25);
+	@include fontSize(18);
 	font-family: $secondaryFont;
 	background: linear-gradient( rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../../images/denise-johnson-463885-unsplash.jpg) no-repeat fixed;
 	background-size: cover;
 	@media (min-width: 640px)  {
 		height: 100vh;	
-		@include fontSize(16);
+		@include fontSize(25);
+	}
+	@media (min-width: 1040px) {
+		@include fontSize(18);
 	}
 }
 
 .wrapper {
+	// width: 90%;
 	max-width: 400px;
 	margin: 0 auto;
 	display: grid;
-	padding: 5px;
-
+	padding: 5px 5px 10px;
+	@media (min-width: 1040px) {
+		max-width: 600px;
+	}
 }
 
 header {
@@ -33,7 +39,7 @@ h1 {
 	margin: 0;
 	font-family: $primaryFont;
 	text-align: center;
-	font-size: 4rem;
+	font-size: 3rem;
 	@media (min-width: 640px) {
 		font-size: 5rem;
 	}
@@ -45,10 +51,29 @@ div.rules {
 	margin: 10px;
 	// height: 100vh;
 }
-span.rule {
+.rules span {
 	font-weight: 600;
 }
 
+.red-rule {
+	color: $red;
+}
+
+.blue-rule {
+	color: $blue;
+}
+
+.green-rule {
+	color: $green;	
+}
+
+.yellow-rule {
+	color: $yellow;
+}
+
+.play-area {
+	height: 85vh;
+}
 p {
 	font-size: 2rem;
 	font-weight: 600;
@@ -71,18 +96,17 @@ a.play {
 	color: white;
 	background: black;
 	display: inline-block;
-	// text-align: center;
 	padding: 10px 50px;
 	border-radius: 30px;
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%); 
-		@media (min-width: 1040px) {
+	@media (min-width: 1040px) {
 			display: none;
-		}
 	}
-
 }
+
+
 .box {
 	width: 75px;
 	height: 75px;
@@ -92,6 +116,11 @@ a.play {
 	display: grid;
 	justify-content: center;
 	align-content: center;
+	justify-self: center;
+	@media (min-width: 1040px) {
+		width: 100px;
+		height: 100px;
+	}
 }
 .none {
 	background: white;
@@ -103,13 +132,17 @@ form {
 	align-content: center;
 }
 
-input[type="submit"] {
+input[type="submit"], input[type="reset"] {
 	font-family: $secondaryFont;
 	color: white;
 	background: black;
 	border: none;
 	border-radius: 30px;
 	padding: 10px 50px;
+}
+
+input[type="reset"] {
+	display: none;
 }
 .red {
 	background: $red;
