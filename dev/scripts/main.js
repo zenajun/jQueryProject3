@@ -45,7 +45,7 @@ app.changeBoxColor = () => {
         const removeColor = app.colorArray[dataIndex];
         const addColor = app.colorArray[dataIndex + 1];
 
-        if (dataIndex === 3) {         
+        if (dataIndex >= 3 ) {         
             // $(this).data('click') === 0;    
             $(this).removeClass('green').addClass('red').attr('data-click', 0);
         } else {
@@ -101,7 +101,7 @@ app.userScore = () => {
 
 // Function that will add 4 boxes to the player div
 app.generatePlayArea = () => {
-    const playerBoxes = `<div class="box" data-click="0"></div>`;
+    const playerBoxes = `<div class="box" data-click="4"></div>`;
     for (let i = 0; i < 4; i++) {
         $('div.player').append(playerBoxes);
     }
@@ -111,7 +111,7 @@ app.generatePlayArea = () => {
 app.displayAnswerBox = () => {
     for (let i = 0; i < app.answerArray.length; i++ ) {
         const colorClass = app.answerArray[i];
-        const boxCode = `<div class="box ${colorClass}" data-click=""></div>`;
+        const boxCode = `<div class="box ${colorClass}"></div>`;
         $('div.answers').append(boxCode);
     }
 }

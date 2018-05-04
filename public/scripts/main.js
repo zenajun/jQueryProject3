@@ -47,7 +47,7 @@ app.changeBoxColor = function () {
         var removeColor = app.colorArray[dataIndex];
         var addColor = app.colorArray[dataIndex + 1];
 
-        if (dataIndex === 3) {
+        if (dataIndex >= 3) {
             // $(this).data('click') === 0;    
             $(this).removeClass('green').addClass('red').attr('data-click', 0);
         } else {
@@ -103,7 +103,7 @@ app.userScore = function () {
 
 // Function that will add 4 boxes to the player div
 app.generatePlayArea = function () {
-    var playerBoxes = '<div class="box" data-click="0"></div>';
+    var playerBoxes = '<div class="box" data-click="4"></div>';
     for (var i = 0; i < 4; i++) {
         $('div.player').append(playerBoxes);
     }
@@ -113,7 +113,7 @@ app.generatePlayArea = function () {
 app.displayAnswerBox = function () {
     for (var i = 0; i < app.answerArray.length; i++) {
         var colorClass = app.answerArray[i];
-        var boxCode = '<div class="box ' + colorClass + '" data-click=""></div>';
+        var boxCode = '<div class="box ' + colorClass + '"></div>';
         $('div.answers').append(boxCode);
     }
 };
