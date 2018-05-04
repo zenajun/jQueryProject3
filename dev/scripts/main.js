@@ -122,12 +122,27 @@ app.resetGame = () => {
     });
 }
 
+app.smoothScroll = () => {
+    $('a.play').on('click', function(e) {
+        if (this.hash !== '') {
+            e.preventDefault();
+            const hash = this.hash;
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top}, 800, function() {
+                window.location.hash = hash;
+            });
+        }
+    });
+}
+
 app.init = () => {
+    app.smoothScroll();
     app.makeArray();
     app.changeBoxColor();
     app.generatePlayArea();
     app.getUsersSelection();
 }
+
 
 // Document ready
 $(function() {    
