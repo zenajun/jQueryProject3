@@ -57,6 +57,18 @@ app.compare = function () {
         }
     }
     $('.correct').text(app.correct);
+    if (app.correct === 4) {
+        console.log('You win!');
+        swal({
+
+            title: "Good job!",
+            icon: "success",
+            text: 'Congratulations!  You\'ve won and it only took you ' + app.attempt + ' attempts!'
+
+        });
+        $('div.answers').html('');
+        app.displayAnswerBox();
+    }
 };
 // Create function that will grab the data from the users box and make an array.
 app.getUsersSelection = function () {
@@ -72,7 +84,6 @@ app.getUsersSelection = function () {
             app.playersArray.push(app.colorArray[$('.player .box:nth-child(' + i + ')').attr('data-click')]);
         }
         app.compare();
-        console.log('Correct: ' + app.correct);
     });
 };
 
@@ -97,7 +108,8 @@ app.displayAnswerBox = function () {
     for (var i = 0; i < app.answerArray.length; i++) {
         var colorClass = app.answerArray[i];
         var boxCode = '<div class="box ' + colorClass + '" data-click=""></div>';
-        $('div.player').append(boxCode);
+        // $('div.answer').html();
+        $('div.answers').append(boxCode);
     }
 };
 
@@ -106,7 +118,7 @@ app.init = function () {
     app.changeBoxColor();
     app.generatePlayArea();
     app.getUsersSelection();
-    app.displayAnswerBox();
+    // app.displayAnswerBox();
 };
 
 // Document ready

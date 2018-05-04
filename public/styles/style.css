@@ -148,13 +148,23 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-size: 16px;
-  font-size: 1.6rem;
+  font-size: 25px;
+  font-size: 2.5rem;
   font-family: "Catamaran", sans-serif;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0.7))), url(../../images/denise-johnson-463885-unsplash.jpg) no-repeat fixed;
   background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../../images/denise-johnson-463885-unsplash.jpg) no-repeat fixed;
-  background-size: cover;
-  height: 100vh; }
+  background-size: cover; }
+  @media (min-width: 640px) {
+    body {
+      height: 100vh;
+      font-size: 16px;
+      font-size: 1.6rem; } }
+
+.wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+  display: grid;
+  padding: 5px; }
 
 header {
   padding: 25px 0; }
@@ -162,21 +172,48 @@ header {
 h1 {
   color: tomato;
   margin: 0;
-  font-family: "Crimson Text", serif; }
+  font-family: "Crimson Text", serif;
+  text-align: center;
+  font-size: 4rem; }
+  @media (min-width: 640px) {
+    h1 {
+      font-size: 5rem; } }
 
-.wrapper {
-  max-width: 400px;
-  margin: 0 auto; }
+div.rules {
+  background: white;
+  padding: 0 5px;
+  border-radius: 5px;
+  margin: 10px; }
+
+span.rule {
+  font-weight: 600; }
+
+p {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 10px 0; }
+
+ul li {
+  margin: 15px 0; }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(4, minmax(75px, 1fr));
+  grid-template-columns: repeat(4, minmax(50px, 1fr));
   grid-gap: 10px;
   margin: 20px 0; }
 
-.result {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); }
+a.play {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  background: black;
+  text-align: center;
+  padding: 10px 50px;
+  border-radius: 30px;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%); }
 
 .box {
   width: 75px;
@@ -194,13 +231,21 @@ h1 {
 .none {
   background: white; }
 
+form {
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center; }
+
 input[type="submit"] {
   font-family: "Catamaran", sans-serif;
   color: white;
   background: black;
   border: none;
   border-radius: 30px;
-  padding: 10px 25px; }
+  padding: 10px 50px; }
 
 .red {
   background: tomato; }
@@ -213,3 +258,9 @@ input[type="submit"] {
 
 .green {
   background: limegreen; }
+
+.swal-text {
+  color: black; }
+
+.swal-button {
+  background: cornflowerblue; }

@@ -7,11 +7,22 @@ html {
 }
 
 body {
-	@include fontSize(16);
+	@include fontSize(25);
 	font-family: $secondaryFont;
 	background: linear-gradient( rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(../../images/denise-johnson-463885-unsplash.jpg) no-repeat fixed;
 	background-size: cover;
-	height: 100vh;
+	@media (min-width: 640px)  {
+		height: 100vh;	
+		@include fontSize(16);
+	}
+}
+
+.wrapper {
+	max-width: 400px;
+	margin: 0 auto;
+	display: grid;
+	padding: 5px;
+
 }
 
 header {
@@ -21,27 +32,56 @@ h1 {
 	color: $red;
 	margin: 0;
 	font-family: $primaryFont;
+	text-align: center;
+	font-size: 4rem;
+	@media (min-width: 640px) {
+		font-size: 5rem;
+	}
 }
-.wrapper {
-	max-width: 400px;
-	margin: 0 auto;
+div.rules {
+	background: white;
+	padding: 0 5px;
+	border-radius: 5px;
+	margin: 10px;
+	// height: 100vh;
+}
+span.rule {
+	font-weight: 600;
+}
 
+p {
+	font-size: 2rem;
+	font-weight: 600;
+	margin: 10px 0;
+}
+
+ul li {
+	margin: 15px 0;
 }
 .container {
 	display: grid;
-	grid-template-columns: repeat(4, minmax(75px, 1fr));
+	grid-template-columns: repeat(4, minmax(50px, 1fr));
 	grid-gap: 10px;
 	margin: 20px 0;
 }
 
-.result {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-}
+a.play {
+	text-decoration: none;
+	display: none;
+	color: white;
+	background: black;
+	display: inline-block;
+	// text-align: center;
+	padding: 10px 50px;
+	border-radius: 30px;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%); 
+		@media (min-width: 1040px) {
+			display: none;
+		}
+	}
 
-
-.answer {
-	// display: none;
 }
 .box {
 	width: 75px;
@@ -57,13 +97,19 @@ h1 {
 	background: white;
 }
 
+form {
+	display: grid;
+	justify-content: center;
+	align-content: center;
+}
+
 input[type="submit"] {
 	font-family: $secondaryFont;
 	color: white;
 	background: black;
 	border: none;
 	border-radius: 30px;
-	padding: 10px 25px;
+	padding: 10px 50px;
 }
 .red {
 	background: $red;
@@ -79,4 +125,13 @@ input[type="submit"] {
 
 .green {
 	background: $green;
+}
+
+// Sweet Alert Pluggin styles
+.swal-text {
+	color: black;	
+}
+
+.swal-button {
+	background: $blue;
 }

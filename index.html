@@ -8,16 +8,22 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Zena's Project 3</title>
 </head>
-<body>
-
-	
+<body>	
 	<div class="wrapper">
-		<header>
-			<h1>Hello World!</h1>
-		</header>
-		<div class="result">
+		<div class="rules">
+			<header>
+				<h1>Colour Right!</h1>
+				<ul>
+					<li>Guess the colours (<span class="rule red">red</span>, <span class="rule blue">blue</span>, <span class="rule green">green</span> and <span class="rule yellow">yellow</span>) hidden behind the <i class="fas fa-question"></i></li>
+					<li>You must guess the correct colour in the <strong>correct sequence</strong></li>
+					<li>Keep trying until you've guess all 4 colours!</li>
+				</ul>
+				<a href="#play" class="play">Play</a>
+			</header>
+			</div>
+		<div class="result" id="play">
 			<p>Attempt: <span class="score">0</span></p>
-			<p>You've guessed: <span class="correct">0</span>/4 correct</p>
+			<p>Guessed: <span class="correct">0</span>/4 correct</p>
 		</div>
 		<div class="container answers">
 			<div class="box"><i class="fas fa-question"></i></div>
@@ -27,20 +33,13 @@
 		</div>
 		<div></div>
 		<div class="container player">
-			<!-- <div class="box red" data-click="0"></div>
-			<div class="box blue" data-click="1"></div>
-			<div class="box yellow" data-click="2"></div>
-			<div class="box green" data-click="3"></div> -->
+			
 		</div>
-				<form>
-					<label for="submit" class="visuallyhidden">Submit</label>
-					<input type="submit" name="submit" id="submit">
-	
-				</form>
-
-
-		<p>test</p>
-	</div>
+			<form>
+				<label for="submit" class="visuallyhidden">Submit</label>
+				<input type="submit" name="submit" id="submit">
+			</form>
+		</div>
 
 	<!---------------- Font awesome script -->
 	<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
@@ -48,6 +47,9 @@
 
 	<!----------------- jQuery script -->
 	<script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+	
+	<!----------------- Sweet alert plugin -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="public/scripts/main.js"></script>
 </body>
 </html>
