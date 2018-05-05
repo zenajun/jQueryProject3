@@ -62,7 +62,7 @@ app.compare = () => {
     } 
     $('.correct').text(app.correct);
     if (app.correct === 4) {
-        console.log(`You win!`);
+        // console.log(`You win!`);
         swal({            
             title: "Good job!",
             icon: "success",
@@ -129,9 +129,10 @@ app.smoothScroll = () => {
             const hash = this.hash;
             $('html, body').animate({
                 scrollTop: $(hash).offset().top}, 800, function() {
-                window.location.hash = hash;
-            });
-        }
+                    window.location.hash = hash;
+                });
+            }
+        // $('.rules').fadeOut(700);
     });
 }
 
@@ -142,7 +143,6 @@ app.init = () => {
     app.generatePlayArea();
     app.getUsersSelection();
 }
-
 
 // Document ready
 $(function() {    

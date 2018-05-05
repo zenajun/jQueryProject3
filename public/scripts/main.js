@@ -64,7 +64,7 @@ app.compare = function () {
     }
     $('.correct').text(app.correct);
     if (app.correct === 4) {
-        console.log('You win!');
+        // console.log(`You win!`);
         swal({
             title: "Good job!",
             icon: "success",
@@ -134,6 +134,7 @@ app.smoothScroll = function () {
                 window.location.hash = hash;
             });
         }
+        // $('.rules').fadeOut(700);
     });
 };
 

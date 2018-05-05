@@ -72,7 +72,10 @@ div.rules {
 }
 
 .play-area {
-	height: 100vh;
+	height: 90vh;
+	@media (min-width: 1040px) {
+		height: inherit;
+	}
 }
 p {
 	font-size: 2rem;
@@ -106,6 +109,9 @@ a.play {
 	}
 }
 
+.answer {
+	padding-top: 50px;
+}
 
 .box {
 	width: 75px;
@@ -130,6 +136,18 @@ form {
 	display: grid;
 	justify-content: center;
 	align-content: center;
+}
+
+.results {
+	display: grid;
+	justify-content: center;
+	text-align: center;
+	background: white;
+	border-radius: 5px;
+	margin: 10px;
+	@media (min-width: 1040px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 input[type="submit"], input[type="reset"] {

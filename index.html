@@ -14,18 +14,14 @@
 			<header>
 				<h1>Colour Right!</h1>
 				<ul>
-					<li>Click on the empty circles to change colours (<span class="red-rule">red</span>, <span class="blue-rule">blue</span>, <span class="green-rule">green</span> or <span class="yellow-rule">yellow</span>)</li>
-					<li>You must guess the correct colour <strong>in</strong> the correct sequence that is hidden behind the <i class="fas fa-question"></i>'s</li>
+					<li>Guess the correct colour <strong>in</strong> the correct sequence that is hidden behind the <i class="fas fa-question"></i>'s</li>
+					<li>Click on the empty circles underneath to change colours (<span class="red-rule">red</span>, <span class="blue-rule">blue</span>, <span class="green-rule">green</span> or <span class="yellow-rule">yellow</span>)</li>
 					<li>Keep trying until you have guessed the correct colours in the right order!  (A colour may appear more than once in the sequence)</li>
 				</ul>
 				<a href="#play" class="play">Play</a>
 			</header>
 		</div>
 		<div class="play-area">
-			<div class="rules" id="play">
-				<p>Attempt: <span class="score">0</span></p>
-				<p>You got: <span class="correct">0</span>/4 correct</p>
-			</div>
 			<div class="container answers">
 				<div class="box"><i class="fas fa-question"></i></div>
 				<div class="box"><i class="fas fa-question"></i></div>
@@ -39,6 +35,10 @@
 				<input type="submit" name="submit" id="submit" value="Guess ?">
 				<input type="reset" name="reset" id="reset" value="Play again!">			
 			</form>
+			<div class="results" id="play">
+				<p>Attempt: <span class="score">0</span></p>
+				<p>You got: <span class="correct">0</span>/4 correct</p>
+			</div>
 		</div>
 	</div>
 

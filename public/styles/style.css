@@ -208,7 +208,10 @@ div.rules {
   color: gold; }
 
 .play-area {
-  height: 100vh; }
+  height: 90vh; }
+  @media (min-width: 1040px) {
+    .play-area {
+      height: inherit; } }
 
 p {
   font-size: 2rem;
@@ -240,6 +243,9 @@ a.play {
     a.play {
       display: none; } }
 
+.answer {
+  padding-top: 50px; }
+
 .box {
   width: 75px;
   height: 75px;
@@ -268,6 +274,19 @@ form {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center; }
+
+.results {
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  background: white;
+  border-radius: 5px;
+  margin: 10px; }
+  @media (min-width: 1040px) {
+    .results {
+      grid-template-columns: repeat(2, 1fr); } }
 
 input[type="submit"], input[type="reset"] {
   font-family: "Catamaran", sans-serif;
