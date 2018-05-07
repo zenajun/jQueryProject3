@@ -243,8 +243,17 @@ a.play {
     a.play {
       display: none; } }
 
-.answer {
+.answers {
   padding-top: 50px; }
+  @media (min-width: 1040px) {
+    .answers {
+      padding: 0; } }
+
+.answers .box:hover {
+  cursor: no-drop; }
+
+.player .box:hover {
+  cursor: pointer; }
 
 .box {
   width: 75px;
@@ -264,9 +273,6 @@ a.play {
       width: 100px;
       height: 100px; } }
 
-.none {
-  background: white; }
-
 form {
   display: grid;
   -webkit-box-pack: center;
@@ -284,9 +290,6 @@ form {
   background: white;
   border-radius: 5px;
   margin: 10px; }
-  @media (min-width: 1040px) {
-    .results {
-      grid-template-columns: repeat(2, 1fr); } }
 
 input[type="submit"], input[type="reset"] {
   font-family: "Catamaran", sans-serif;

@@ -134,7 +134,6 @@ app.smoothScroll = function () {
                 window.location.hash = hash;
             });
         }
-        // $('.rules').fadeOut(700);
     });
 };
 
