@@ -184,7 +184,8 @@ h1 {
   font-size: 3rem; }
   @media (min-width: 640px) {
     h1 {
-      font-size: 5rem; } }
+      font-size: 6rem;
+      margin-bottom: 40px; } }
 
 div.rules {
   background: white;

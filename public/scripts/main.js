@@ -137,23 +137,12 @@ app.smoothScroll = function () {
     });
 };
 
-app.twitterShare = function () {
-    twttr.widgets.createShareButton("https:\/\/dev.twitter.com\/web\/tweet-button", document.getElementById("tweet-container"), {
-        size: "large",
-        text: "text goes here!",
-        hashtags: "example,demo",
-        via: "twitterdev",
-        related: "twitterapi,twitter"
-    });
-};
-
 app.init = function () {
     app.smoothScroll();
     app.makeArray();
     app.changeBoxColor();
     app.generatePlayArea();
     app.getUsersSelection();
-    app.twitterShare();
 };
 
 // Document ready
